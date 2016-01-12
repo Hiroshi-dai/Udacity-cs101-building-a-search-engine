@@ -6,7 +6,7 @@
 # or decimal, and if it is 1, then it should be followed by second.
 # You might need to use int() to turn a decimal into a float depending
 # on how you code this. int(3.0) gives 3
-
+'''
 def convert_seconds(secs):
     hrs = int(secs/3600)
     secs = secs%3600
@@ -30,7 +30,24 @@ def convert_seconds(secs):
     else:
         string = string+" seconds"
     return string
+'''
+
+def convert_seconds(time):
+    s = time % 60
+    m = int(((time- s) % 3600) / 60)
+    h = int((time-m-s) / 3600)
+    h_text = ' hours, '
+    m_text = ' minutes, '
+    s_text = ' seconds, '
+    if h == 1:
+        h_text = ' hour, '
+    if m == 1:
+        m_text = ' minute, '
+    if s == 1:
+        s_text = ' second, '
+    return str(h) + h_text + str(m) + m_text + str(s) + s_text
     
+
 print convert_seconds(3661)
 #>>> 1 hour, 1 minute, 1 second
 
